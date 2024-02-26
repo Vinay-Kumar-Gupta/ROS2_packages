@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<robot name="v_bot_cleaner" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find v_bot_cleaner_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find v_bot_cleaner_description)/urdf/v_bot_cleaner.trans" />
+<xacro:include filename="$(find v_bot_cleaner_description)/urdf/v_bot_cleaner.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0010529075795481706 3.250751684527489e-06 0.04653885044149195" rpy="0 0 0"/>
+    <mass value="14.427997882439607"/>
+    <inertia ixx="0.156211" iyy="0.163166" izz="0.286402" ixy="0.0" iyz="-3e-06" ixz="0.002573"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="5.927036639263861e-14 7.623066919371091e-08 -1.4852702401313422e-13" rpy="0 0 0"/>
+    <mass value="0.09488179679651186"/>
+    <inertia ixx="2.5e-05" iyy="4e-05" izz="2.5e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.152679 -0.015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.152679 -0.015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.00010010312107208708 3.920335264882301e-07 0.01482367548927023" rpy="0 0 0"/>
+    <mass value="0.11006537353248454"/>
+    <inertia ixx="3.3e-05" iyy="3.3e-05" izz="4.9e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.14 -0.0 -0.095" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="light_green"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.14 -0.0 -0.095" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-9.408696044488352e-14 -7.623068071227479e-08 1.2913281555171352e-13" rpy="0 0 0"/>
+    <mass value="0.09488179679651186"/>
+    <inertia ixx="2.5e-05" iyy="4e-05" izz="2.5e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.152679 -0.015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.152679 -0.015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="0.0007281929505995738 2.0402133576155774e-07 0.014893158996248407" rpy="0 0 0"/>
+    <mass value="0.08053770367996724"/>
+    <inertia ixx="2.2e-05" iyy="1.8e-05" izz="2.8e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.045 -0.0 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.045 -0.0 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find v_bot_cleaner_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="right_wh_joint" type="continuous">
+  <origin xyz="0.0 -0.152679 0.015" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lidar" type="fixed">
+  <origin xyz="0.14 0.0 0.095" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="left_wh_joint" type="continuous">
+  <origin xyz="0.0 0.152679 0.015" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.045 0.0 0.165" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+</robot>

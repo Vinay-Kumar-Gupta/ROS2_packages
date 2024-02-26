@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<robot name="v_bot_cleaner" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+
+<material name="black">
+  <color rgba="0 0 0 1"/> 
+  <!-- red green blue transprency -->
+</material>
+
+<material name = "white">
+  <color rgba="1 1 1 1"/>
+</material>
+
+<material name = "light_green">
+  <color rgba="0.725 0.941 0.855 1"/>
+</material>
+
+<material name= "red">
+  <color rgba="1 0.224 0.224 1"/>
+</material>
+</robot>
