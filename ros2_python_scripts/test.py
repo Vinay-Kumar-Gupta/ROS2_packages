@@ -1,5 +1,6 @@
 import speech_recognition as sr
 import pyttsx3
+
 # def recognize_speech():
 #     # Initialize recognizer
 #     recognizer = sr.Recognizer()

@@ -10,6 +10,7 @@ def generate_launch_description():
     default_model_path = os.path.join(pkg_share, 'urdf/v_bot_cleaner.xacro')
     default_rviz_config_path = os.path.join(pkg_share, 'config/display.rviz')
     world_path = os.path.join(pkg_share, 'worlds/home_1.sdf')
+    
     # sdf_path = os.path.join(pkg_share, 'models/urdf/v_bot_cleaner/model.sdf')
     use_sim_time = LaunchConfiguration('use_sim_time')
     robot_state_publisher_node = launch_ros.actions.Node(
